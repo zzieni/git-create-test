@@ -3,32 +3,37 @@ const initialState = {
   number: 0,
 };
 
-const PLUS_ONE = 'PLUS_ONE';
+// payload
+const ADD_NUMBER = 'ADD_NUMBER';
+const REMOVE_NUMBER = 'REMOVE_NUMBER';
 
-export const pulsOne = () => {
+// Action Creator
+
+export const addNumber = (payload) => {
   return {
-    type: PLUS_ONE,
+    type: ADD_NUMBER,
+    payload: payload,
   };
 };
 
-const MIUSE_ONE = 'MIUSE_ONE';
-
-export const miuseOne = () => {
+export const removeNumber = (payload) => {
   return {
-    type: MIUSE_ONE,
+    type: REMOVE_NUMBER,
+    payload: payload,
   };
 };
-
 // 리듀서
 const counter = (state = initialState, action) => {
   console.log('action', action);
   switch (action.type) {
-    case 'PLUS_ONE':
+    case 'ADD_NUMBER':
       return {
-        number: state.number + 1,
+        number: state.number + action.payload,
       };
-    case 'MIUSE_ONE':
-      return { number: state.number - 1 };
+    case 'REMOVE_NUMBER':
+      return {
+        number: state.number - action.payload,
+      };
     default:
       return state;
   }

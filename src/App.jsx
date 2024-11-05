@@ -1,9 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import './App.css';
-import { miuseOne, pulsOne } from './redux/modules/counter';
+import { addNumber, removeNumber } from './redux/modules/counter';
+import { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   const counterReducer = useSelector((state) => {
     return state.counter;
   });
@@ -14,22 +17,28 @@ function App() {
 
   return (
     <>
+      {counterReducer.number}
       <div>
+        <br />
+        <input
+          type="number"
+          value={count}
+          onChange={(e) => setCount(+e.target.value)}
+        />
         <button
           onClick={() => {
-            dispatch(pulsOne);
+            dispatch(addNumber(count));
           }}
         >
-          +1
+          더하기
         </button>
-      </div>
-      <div>
+
         <button
           onClick={() => {
-            dispatch(miuseOne);
+            dispatch(removeNumber(count));
           }}
         >
-          -1
+          뺴기
         </button>
       </div>
     </>
