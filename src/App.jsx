@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import './App.css';
+import { miuseOne, pulsOne } from './redux/modules/counter';
 
 function App() {
   const counterReducer = useSelector((state) => {
@@ -16,7 +17,7 @@ function App() {
       <div>
         <button
           onClick={() => {
-            dispatch({ type: 'PLUS_ONE' });
+            dispatch(pulsOne);
           }}
         >
           +1
@@ -25,7 +26,7 @@ function App() {
       <div>
         <button
           onClick={() => {
-            dispatch({ type: 'MIUSE_ONE' });
+            dispatch(miuseOne);
           }}
         >
           -1

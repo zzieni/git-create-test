@@ -3,6 +3,22 @@ const initialState = {
   number: 0,
 };
 
+const PLUS_ONE = 'PLUS_ONE';
+
+export const pulsOne = () => {
+  return {
+    type: PLUS_ONE,
+  };
+};
+
+const MIUSE_ONE = 'MIUSE_ONE';
+
+export const miuseOne = () => {
+  return {
+    type: MIUSE_ONE,
+  };
+};
+
 // 리듀서
 const counter = (state = initialState, action) => {
   console.log('action', action);
