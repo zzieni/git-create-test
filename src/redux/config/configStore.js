@@ -1,5 +1,5 @@
-import { combineReducers, createStore } from 'react-redux';
 import counter from '../modules/counter'; // 모듈
+import { combineReducers, createStore } from '@reduxjs/toolkit';
 
 /*
 1. createStore()
